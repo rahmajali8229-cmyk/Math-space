@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+      <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Space | عالم الرياضيات</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+
+*{box-sizing:border-box}
+body{
+ margin:0;background:#f7f7fc;color:#252743;
+ font-family:Tajawal,sans-serif;
+}
+header{
+ background:#252747;color:white;padding:22px 7%;
+ display:flex;justify-content:space-between;align-items:center;
+}
+.logo{font-size:26px;font-weight:800;letter-spacing:1px}
+.logo span{color:#b7a5f5}
+header small{color:#d1c9ee}
+.hero{
+ margin:35px auto;width:88%;padding:48px 35px;
+ border-radius:24px;color:white;
+ background:linear-gradient(120deg,#29294f,#6655a6);
+ position:relative;overflow:hidden;
+}
+.hero h1{font-size:38px;margin:0 0 12px}
+.hero p{font-size:17px;color:#e3def5}
+.math-symbols{
+ position:absolute;left:30px;top:10px;
+ font-size:65px;color:#ffffff20;line-height:1.5;
+}
+.container{width:88%;margin:35px auto}
+.heading{font-size:25px;margin-bottom:20px}
+.sections{
+ display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+}
+.section{
+ background:white;border:1px solid #eceaf5;
+ padding:28px 15px;border-radius:20px;
+ text-align:center;cursor:pointer;transition:.25s;
+}
+.section:hover{
+ transform:translateY(-6px);
+ box-shadow:0 10px 25px #29294f12;
+ border-color:#b7a5f5;
+}
+.symbol{
+ width:65px;height:65px;margin:auto;
+ border-radius:18px;background:#f0edfc;
+ display:grid;place-items:center;
+ font-size:30px;
+}
+.section h3{font-size:19px;margin:15px 0 5px}
+.section p{font-size:13px;color:#9291a8}
+#page{display:none;width:88%;margin:35px auto}
+.back{
+ background:#eeebfa;color:#51438b;border:0;
+ border-radius:10px;padding:12px 20px;
+ font-family:inherit;font-size:15px;cursor:pointer;
+}
+.upload{
+ background:white;padding:25px;border-radius:18px;
+ border:1px solid #eceaf5;margin:25px 0;
+}
+.upload h3{margin-top:0}
+input{
+ display:block;width:100%;padding:13px;margin:10px 0;
+ border:1px solid #e5e1f0;border-radius:10px;
+ font-family:inherit;font-size:14px;
+}
+.btn{
+ background:#55458f;color:white;border:0;
+ border-radius:10px;padding:13px 25px;
+ font-family:inherit;cursor:pointer;font-size:15px;
+}
+.files{
+ display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+ gap:15px;margin:22px 0;
+}
+.file{
+ background:white;padding:20px;border-radius:16px;
+ border:1px solid #eceaf5;
+}
+.file-icon{font-size:30px}
+.file h3{overflow-wrap:anywhere}
+.file a{color:#6552a5;text-decoration:none;font-weight:bold}
+.delete{
+ background:#f9eaea;color:#a34d58;border:0;
+ border-radius:8px;padding:9px 14px;
+ cursor:pointer;font-family:inherit;margin-top:15px;
+}
+.empty{
+ background:white;padding:30px;text-align:center;
+ color:#9694aa;border-radius:15px;
+}
+footer{text-align:center;padding:25px;color:#9896aa}
+@media(max-width:700px){
+ .sections{grid-template-columns:repeat(2,1fr)}
+ .hero h1{font-size:28px}
+ .math-symbols{font-size:40px;left:10px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">Math <span>Space.</span></div>
+ <small>مساحة للإبداع والتعلّم</small>
+</header>
+
+<main id="home">
+ <section class="hero">
+  <div class="math-symbols">∑<br>π × √</div>
+  <h1>أهلاً بكِ في Math Space</h1>
+  <p>اكتشفي جمال الرياضيات، وتعلّمي، وتحدّي قدراتكِ!</p>
+ </section>
+
+ <section class="container">
+  <h2 class="heading">اكتشفي عالمكِ الرياضي</h2>
+  <div class="sections">
+   <div class="section" onclick="openSection('الدروس','📚')">
+    <div class="symbol">📚</div>
+    <h3>الدروس</h3>
+    <p>شروحات وملفات تعليمية</p>
+   </div>
+   <div class="section" onclick="openSection('الأنشطة','✏️')">
+    <div class="symbol">✏️</div>
+    <h3>الأنشطة</h3>
+    <p>تدريبات وأوراق عمل</p>
+   </div>
+   <div class="section" onclick="openSection('فيديوات تعليمية','🎬')">
+    <div class="symbol">🎬</div>
+    <h3>فيديوات تعليمية</h3>
+    <p>تعلّمي بطريقة ممتعة</p>
+   </div>
+   <div class="section" onclick="openSection('المسابقات','🏆')">
+    <div class="symbol">🏆</div>
+    <h3>المسابقات</h3>
+    <p>تحديات واختبارات</p>
+   </div>
+  </div>
+ </section>
+</main>
+
+<section id="page">
+ <button class="back" onclick="home()">← الرئيسية</button>
+ <h1 id="title"></h1>
+ <p>جميع الموارد التعليمية الخاصة بهذا القسم.</p>
+
+ <div class="upload">
+  <h3>＋ إضافة محتوى</h3>
+  <input id="name" placeholder="عنوان المحتوى">
+  <label>رفع ملف PDF</label>
+  <input id="pdf" type="file" accept=".pdf,application/pdf">
+  <p style="text-align:center;color:#999">أو أضيفي رابط Google Drive</p>
+  <input id="url" type="url" placeholder="رابط Google Drive">
+  <button class="btn" onclick="add()">إضافة المحتوى</button>
+ </div>
+
+ <h2>المحتويات</h2>
+ <div class="files" id="list"></div>
+</section>
+
+<footer>Math Space ©️ 2026 | حيث تبدأ الأفكار</footer>
+<footer>إشراف أ. هدى ناجي - مدرسة غازي القصيبي الثانوية للبنات</footer>
+
+<script>
+let db, current='';
+
+const request=indexedDB.open('MathSpaceDB',1);
+
+request.onupgradeneeded=e=>{
+ db=e.target.result;
+ db.createObjectStore('items',{keyPath:'id',autoIncrement:true});
+};
+request.onsuccess=e=>{
+ db=e.target.result;
+};
+request.onerror=()=>alert('تعذر تشغيل قاعدة البيانات');
+
+function openSection(name,emoji){
+ current=name;
+ document.getElementById('home').style.display='none';
+ document.getElementById('page').style.display='block';
+ document.getElementById('title').textContent=emoji+' '+name;
+ document.getElementById('name').value='';
+ document.getElementById('pdf').value='';
+ document.getElementById('url').value='';
+ show();
+}
+
+function home(){
+ document.getElementById('page').style.display='none';
+ document.getElementById('home').style.display='block';
+}
+
+function add(){
+ if(!db)return alert('انتظري حتى تجهز المنصة');
+
+ const name=document.getElementById('name').value.trim();
+ const pdf=document.getElementById('pdf').files[0];
+ const url=document.getElementById('url').value.trim();
+
+ if(!name)return alert('اكتبي عنوان المحتوى');
+ if(!pdf&&!url)return alert('أضيفي ملفاً أو رابطاً');
+ if(pdf&&(pdf.type!=='application/pdf'||
+ !pdf.name.toLowerCase().endsWith('.pdf')))
+ return alert('اختاري ملف PDF صحيحاً');
+ if(pdf&&url)return alert('أضيفي ملفاً أو رابطاً في كل مرة');
+
+ if(url){
+  try{
+   const u=new URL(url);
+   if(u.protocol!=='https:'||
+   !['drive.google.com','docs.google.com'].includes(u.hostname))
+   return alert('أدخلي رابط Google Drive صحيحاً');
+  }catch{return alert('الرابط غير صحيح');}
+ }
+
+ const tx=db.transaction('items','readwrite');
+ tx.objectStore('items').add({
+  section:current,name,
+  file:pdf||null,url:url||''
+ });
+ tx.oncomplete=()=>{
+  document.getElementById('name').value='';
+  document.getElementById('pdf').value='';
+  document.getElementById('url').value='';
+  show();
+  alert('تمت الإضافة بنجاح!');
+ };
+ tx.onerror=()=>alert('تعذرت إضافة المحتوى');
+}
+
+function show(){
+ if(!db)return;
+ const list=document.getElementById('list');
+ list.innerHTML='';
+
+ const tx=db.transaction('items','readonly');
+ const req=tx.objectStore('items').getAll();
+
+ req.onsuccess=()=>{
+  const items=req.result.filter(x=>x.section===current);
+
+  if(!items.length){
+   list.innerHTML='<div class="empty">لا توجد ملفات بعد ✨</div>';
+   return;
+  }
+
+  items.forEach(item=>{
+   const card=document.createElement('div');
+   card.className='file';
+
+   const icon=document.createElement('div');
+   icon.className='file-icon';
+   icon.textContent=item.file?'📄':'🔗';
+
+   const h=document.createElement('h3');
+   h.textContent=item.name;
+
+   const a=document.createElement('a');
+   a.textContent=item.file?'فتح ملف PDF':'فتح Google Drive';
+   a.href=item.file?URL.createObjectURL(item.file):item.url;
+   a.target='_blank';
+   a.rel='noopener noreferrer';
+
+   const del=document.createElement('button');
+   del.className='delete';
+   del.textContent='حذف';
+   del.onclick=()=>remove(item.id);
+
+   card.append(icon,h,a,document.createElement('br'),del);
+   list.append(card);
+  });
+ };
+}
+
+function remove(id){
+ if(!confirm('هل تريدين حذف المحتوى؟'))return;
+ const tx=db.transaction('items','readwrite');
+ tx.objectStore('items').delete(id);
+ tx.oncomplete=show;
+}
+</script>
+</body>
+</html>
+
+  </body>
+</html>
